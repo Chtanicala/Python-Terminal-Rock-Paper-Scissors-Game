@@ -5,54 +5,32 @@
 
 import random
 
-choices = ["rock", "paper", "scissors"]
-#substitute this with string format to allow easier subsitution
-
-player_selection = None
-
-computer_selection = random.choice(choices)
-
-while player_selection not in choices: 
-    player_selection = str(input("Please select rock, paper, or scissors: ")).lower
-
-
-def rps_game():
+while True:
+    choices = ["rock", "paper", "scissors"]
+    player_selection = None
+    computer_selection = random.choice(choices)
     total_score = 0
-    if player_selection() == "rock" and computer_selection() == "paper":
-        print("You Lose!")
-        total_score = total_score -1
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "rock" and computer_selection() == "scissors":
-        print("You Won!")
-        total_score = total_score +1
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "rock" and computer_selection() == "rock":
-        print("Tie!")
-        total_score = total_score +0
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "scissors" and computer_selection() == "paper":
-        print("You Won!")
-        total_score = total_score +1
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "scissors" and computer_selection() == "rock":
-        print("You Lose!")
-        total_score = total_score -1
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "scissors" and computer_selection() == "scissors":
-        print("Tie!")
-        total_score = total_score +0
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "paper" and computer_selection() == "rock":
-        print("You Won!")
-        total_score = total_score +1
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "paper" and computer_selection() == "paper":
-        print("Tie!")
-        total_score = total_score +0
-        print("Your total score is " + str(total_score))
-    elif player_selection() == "paper" and computer_selection() == "scissors":
-        print("You Lose!")
-        total_score = total_score -1
-        print("Your total score is " + str(total_score))
 
-rps_game()
+    while player_selection not in choices: 
+        player_selection = input("Please select rock, paper, or scissors: ").lower()
+
+    if player_selection == computer_selection:
+        print("Player: " + player_selection)
+        print("Computer: " + computer_selection)
+        print("Tie!")
+    if player_selection == "rock":
+            if computer_selection == "paper": 
+                print("Player: " + player_selection)
+                print("Computer: " + computer_selection)
+                print("You Lose!")
+
+                total_score = total_score -1
+                print("Your total score is " + str(total_score))
+            if computer_selection == "scissors":
+                print("Player: " + player_selection)
+                print("Computer: " + computer_selection)
+                print("You Won!")
+                
+                total_score = total_score +1
+                print("Your total score is " + str(total_score))
+
