@@ -5,12 +5,13 @@
 
 import random
 
+total_score = 0
+
 while True:
     choices = ["rock", "paper", "scissors"]
     replay_choices = ["yes", "no"]
     player_selection = None
     computer_selection = random.choice(choices)
-    total_score = 0
     replay_game = None
 
     while player_selection not in choices: 
@@ -20,13 +21,14 @@ while True:
         print("Player: " + player_selection)
         print("Computer: " + computer_selection)
         print("Tie!")
+        print("Your total score is " + str(total_score))
     elif player_selection == "rock":
             if computer_selection == "paper": 
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Lose!")
 
-                total_score = total_score -1
+                total_score = total_score - 1
                 print("Your total score is " + str(total_score))
             if computer_selection == "scissors":
                 print("Player: " + player_selection)
