@@ -1,11 +1,10 @@
-#Make a rock paper scissors game
-#prompts the user to input their choice as rock, paper, or scissors and will accept nothing else
-#evaluates this choice a against a random selection from these choices and decides the winner.
-#Stores record, and loops back
-
+#Import random module to randomly select choices for computer's input
 import random
 
-total_score = 0
+#Wins, Ties and Losses are kept track in the global scope to avoid refreshing
+wins = 0
+losses = 0
+ties = 0
 
 while True:
     choices = ["rock", "paper", "scissors"]
@@ -13,6 +12,7 @@ while True:
     player_selection = None
     computer_selection = random.choice(choices)
     replay_game = None
+    
 
     while player_selection not in choices: 
         player_selection = input("Please select rock, paper, or scissors: ").lower()
@@ -21,52 +21,48 @@ while True:
         print("Player: " + player_selection)
         print("Computer: " + computer_selection)
         print("Tie!")
-        print("Your total score is " + str(total_score))
+        ties = ties + 1
+        
     elif player_selection == "rock":
             if computer_selection == "paper": 
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Lose!")
-
-                total_score = total_score - 1
-                print("Your total score is " + str(total_score))
+                losses += 1
+                
             if computer_selection == "scissors":
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Won!")
-
-                total_score = total_score +1
-                print("Your total score is " + str(total_score))
+                wins += 1
+                
     elif player_selection == "scissors":
             if computer_selection == "rock": 
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Lose!")
-
-                total_score = total_score -1
-                print("Your total score is " + str(total_score))
+                losses += 1
+                
             if computer_selection == "paper":
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Won!")
-
-                total_score = total_score +1
-                print("Your total score is " + str(total_score))
+                wins += 1
+                
     elif player_selection == "paper":
             if computer_selection == "scissors": 
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Lose!")
-
-                total_score = total_score -1
-                print("Your total score is " + str(total_score))
+                losses += 1
+                
             if computer_selection == "rock":
                 print("Player: " + player_selection)
                 print("Computer: " + computer_selection)
                 print("You Won!")
-
-                total_score = total_score +1
-                print("Your total score is " + str(total_score))
+                wins += 1
+                
+    print("Current Score: Wins: " + str(wins) + " Losses: " + str(losses) + " Ties: " + str(ties))
 
     while replay_game not in replay_choices:
         replay_game =  input("Play Again? Yes/No: ").lower()
